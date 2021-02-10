@@ -48,6 +48,7 @@ namespace Assignment4.Controllers
         {
             if (ModelState.IsValid)
             {
+                TempStorage.AddRestaurant(restaurantInput);
                 return View("RestaurantList", TempStorage.restaurantInputs);
             }
             else

@@ -14,9 +14,7 @@ namespace Assignment4.Models
 
         public string FavoriteDish { get; set; }
 
-        //[DataType(DataType.PhoneNumber, ErrorMessage ="Please input the phone number in the correct format, i.e. (800) 555-5555")]
-        //[RegularExpression(string )]
-        [Phone]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         public string Phone { get; set; }
 
         
