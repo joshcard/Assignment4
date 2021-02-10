@@ -27,7 +27,7 @@ namespace Assignment4.Controllers
             {
                 string? favDish = r.FavDish ?? "It's all tasty!";
 
-                top5Restaurants.Add($"#{r.Rank}: {r.RestaurantName}, Favorite Dish: {favDish}, Address: {r.Address}, Phone: {r.Phone}, Website:{r.Website}");
+                top5Restaurants.Add($"#{r.Rank}: {r.RestaurantName}, Favorite Dish: {favDish}, Address: {r.Address}, Phone: {r.Phone}, Website: {r.Website}");
 
                 //top5Restaurants.Add("#" + r.Rank + ": " + r.RestaurantName + "\r\n" + "Favorite Dish: " + favDish + "\r\n" + "Address: " + r.Address + "\r\n" +
                 //                    "Phone: " + r.Phone + "\r\n" + "Website: " + r.Website);
@@ -35,6 +35,30 @@ namespace Assignment4.Controllers
             }
 
             return View(top5Restaurants);
+        }
+
+        [HttpGet]
+        public IActionResult RestaurantInput()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult RestaurantInput(RestaurantInput restaurantInput)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("RestaurantList", TempStorage.restaurantInputs);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public IActionResult RestaurantList()
+        {
+            return View(TempStorage.restaurantInputs);
         }
 
         public IActionResult Privacy()
