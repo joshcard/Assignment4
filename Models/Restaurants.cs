@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,12 +8,15 @@ namespace Assignment4.Models
 {
     public class Restaurant
     {
+        [Required]
         public int Rank { get; set; }
 
+        [Required]
         public string RestaurantName { get; set; }
 
-        public string FavDish { get; set; }
+        public string? FavDish { get; set; }
 
+        [Required]
         public string Address { get; set; }
 
         public string Phone { get; set; }
@@ -65,7 +69,7 @@ namespace Assignment4.Models
             {
                 Rank = 5,
                 RestaurantName = "Two Jacks",
-                FavDish = "Meat Pizza",
+                //FavDish = "Meat Pizza",
                 Address = "80 W Center St, Provo, UT 84601",
                 Phone = "(801) 377-4747",
                 Website = "https://www.twojackspizza.com/"

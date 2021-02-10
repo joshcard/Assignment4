@@ -18,9 +18,23 @@ namespace Assignment4.Controllers
             _logger = logger;
         }
 
+
         public IActionResult Index()
         {
-            return View();
+            List<string> top5Restaurants = new List<string>();
+
+            foreach(Restaurant r in Restaurant.GetRestaurants())
+            {
+                string? favDish = r.FavDish ?? "It's all tasty!";
+
+                top5Restaurants.Add($"#{r.Rank}: {r.RestaurantName}, Favorite Dish: {favDish}, Address: {r.Address}, Phone: {r.Phone}, Website:{r.Website}");
+
+                //top5Restaurants.Add("#" + r.Rank + ": " + r.RestaurantName + "\r\n" + "Favorite Dish: " + favDish + "\r\n" + "Address: " + r.Address + "\r\n" +
+                //                    "Phone: " + r.Phone + "\r\n" + "Website: " + r.Website);
+
+            }
+
+            return View(top5Restaurants);
         }
 
         public IActionResult Privacy()

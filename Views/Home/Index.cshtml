@@ -3,7 +3,22 @@
     ViewBag.Title = "Welcome!";
 }
 
+@model IEnumerable<string>
+
+<div class="text-center">
+    <img src="~/img/provo.jpg" width="500" class="rounded" />
+</div>
+<br />
 <div>
     <h4 class="text-center">Check out the 5 best restaurants in the Provo area</h4>
+</div>
+
+<div>
+    <ul class="list-group">
+        @foreach (string str in Model)
+        {
+            <li class="list-group-item">@str</li>
+        }
+    </ul>
 </div>
 
