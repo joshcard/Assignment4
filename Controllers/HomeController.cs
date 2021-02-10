@@ -18,45 +18,50 @@ namespace Assignment4.Controllers
             _logger = logger;
         }
 
-
+        //Action for index page
         public IActionResult Index()
         {
+            //Uses the array of by calling the GetRestaurants method and saves it all into a string to be displayed like shown in the videos.
             List<string> top5Restaurants = new List<string>();
 
             foreach(Restaurant r in Restaurant.GetRestaurants())
             {
                 string? favDish = r.FavDish ?? "It's all tasty!";
 
-                top5Restaurants.Add($"#{r.Rank}: {r.RestaurantName}, Favorite Dish: {favDish}, Address: {r.Address}, Phone: {r.Phone}, Website: {r.Website}");
-
-                //top5Restaurants.Add("#" + r.Rank + ": " + r.RestaurantName + "\r\n" + "Favorite Dish: " + favDish + "\r\n" + "Address: " + r.Address + "\r\n" +
-                //                    "Phone: " + r.Phone + "\r\n" + "Website: " + r.Website);
+                top5Restaurants.Add($"#{r.Rank}: {r.RestaurantName}, Favorite Dish: {favDish}, Address: {r.Address}, " +
+                    $"Phone: {r.Phone}, Website: {r.Website}");
 
             }
 
             return View(top5Restaurants);
         }
 
+        //HttpGet forthe RestaurantInput view
         [HttpGet]
         public IActionResult RestaurantInput()
         {
             return View();
         }
 
+        //HttpPost tied to the form on the RestaurantInput view
         [HttpPost]
         public IActionResult RestaurantInput(RestaurantInput restaurantInput)
         {
+            //verifies that the form has been filled correctly
             if (ModelState.IsValid)
             {
+                //if correct then it displays the inputted restaurants
                 TempStorage.AddRestaurant(restaurantInput);
                 return View("RestaurantList", TempStorage.restaurantInputs);
             }
             else
             {
+                //if not filled correctly then it will stay on the RestaurantInput page and display the error (incorrect phone format)
                 return View();
             }
         }
 
+        //Action to display the RestaurantList view
         public IActionResult RestaurantList()
         {
             return View(TempStorage.restaurantInputs);

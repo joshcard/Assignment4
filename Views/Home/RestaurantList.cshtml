@@ -4,7 +4,7 @@
 @{
     ViewBag.Title = "Restaurant List";
 }
-
+<!--pull in the IEnumerable to loop through the attributes of the objects saved to the model-->
 @model IEnumerable<Assignment4.Models.RestaurantInput>
 
 <center>
@@ -22,6 +22,7 @@
                 </tr>
             </thead>
 
+            <!--Loop through and display the inputted restaurant info-->
             <tbody>
                 @foreach (Assignment4.Models.RestaurantInput ri in Model)
                 {

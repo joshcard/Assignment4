@@ -5,14 +5,17 @@
 
 @model IEnumerable<string>
 
+<!--Image of the provo area-->
 <div class="text-center">
     <img src="~/img/provo.jpg" width="500" class="rounded" />
 </div>
 <br />
+<!--a little mini header below the welcome message-->
 <div>
     <h4 class="text-center">Check out the 5 best restaurants in the Provo area</h4>
 </div>
 
+<!--list of the strings of the restaurant objects from the array-->
 <div>
     <ul class="list-group">
         @foreach (string str in Model)

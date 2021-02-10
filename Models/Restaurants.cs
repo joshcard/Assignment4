@@ -13,6 +13,7 @@ namespace Assignment4.Models
             Rank = restRank;
         }
 
+        //Rank doesn't have a set and is therefore read only
         [Required]
         public int Rank { get; }
 
@@ -26,10 +27,12 @@ namespace Assignment4.Models
 
         public string? Phone { get; set; }
 
+        //if null "Coming soon!" will be returned
         public string? Website { get; set; } = "Coming soon!";
 
         public static Restaurant[] GetRestaurants()
         {
+            //parameter passed in for the rank
             Restaurant r1 = new Restaurant(1)
             {
                 RestaurantName = "Tucanos",
@@ -75,6 +78,7 @@ namespace Assignment4.Models
                 Website = "https://www.twojackspizza.com/"
             };
 
+            //objects are saved into an array to be used in display
             return new Restaurant[] { r1, r2, r3, r4, r5 };
         }
 
