@@ -54,21 +54,21 @@ namespace Assignment4.Models
             Restaurant r4 = new Restaurant
             {
                 Rank = 4,
-                RestaurantName = "Tucanos",
-                FavDish = "Garlic Sirloin",
-                Address = "545 E University Pkwy, Orem, UT 84097",
-                Phone = "801-224-4774",
-                Website = "https://www.tucanos.com/"
+                RestaurantName = "Sweeto Burrito",
+                FavDish = "The Smokehouse",
+                Address = "1284 N University Ave, Provo, UT 84604",
+                Phone = "801-555-5555",
+                Website = "https://sweetoburrito.com/"
             };
 
             Restaurant r5 = new Restaurant
             {
                 Rank = 5,
-                RestaurantName = "Tucanos",
-                FavDish = "Garlic Sirloin",
-                Address = "545 E University Pkwy, Orem, UT 84097",
-                Phone = "801-224-4774",
-                Website = "https://www.tucanos.com/"
+                RestaurantName = "Two Jacks",
+                FavDish = "Meat Pizza",
+                Address = "80 W Center St, Provo, UT 84601",
+                Phone = "(801) 377-4747",
+                Website = "https://www.twojackspizza.com/"
             };
 
             return new Restaurant[] { r1, r2, r3, r4, r5 };
