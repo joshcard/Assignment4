@@ -16,6 +16,5 @@ namespace Assignment4.Models
         {
             restInput.Add(restaurantInput);
         }
-
     }
 }
