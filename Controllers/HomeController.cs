@@ -50,8 +50,16 @@ namespace Assignment4.Controllers
             //verifies that the form has been filled correctly
             if (ModelState.IsValid)
             {
-                //if correct then it displays the inputted restaurants
                 TempStorage.AddRestaurant(restaurantInput);
+                //if fav dish is null then display its all tasty
+                foreach (RestaurantInput ri in TempStorage.restaurantInputs)
+                {
+                    if (ri.FavoriteDish == null | ri.FavoriteDish == "")
+                    {
+                        ri.FavoriteDish = "It's all tasty!";
+                    }
+                }
+                //if correct then it displays the inputted restaurants
                 return View("RestaurantList", TempStorage.restaurantInputs);
             }
             else
