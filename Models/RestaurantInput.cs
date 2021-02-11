@@ -16,7 +16,7 @@ namespace Assignment4.Models
         public string FavoriteDish { get; set; }
 
         //Verify that the phone number was entered correctly
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
+        [RegularExpression(@"((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}", ErrorMessage = "Entered phone format is not valid. Must be XXX-XXX-XXXX.")]
         public string Phone { get; set; }
 
         
